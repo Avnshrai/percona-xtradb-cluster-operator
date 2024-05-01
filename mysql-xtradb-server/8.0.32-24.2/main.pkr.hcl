@@ -51,8 +51,13 @@ build {
       "sudo apt-get update",
       "sudo apt-get install -y docker.io",
       "sudo apt install docker-buildx",
-      "sudo apt-get update",
+      "git clone https://github.com/Avnshrai/percona-xtradb-cluster-operator.git",
+      "cd percona-xtradb-cluster-operator/mysql-xtradb-server/${var.tag}/percona-xtradb-cluster-8.0",
+      "docker build -t ${var.docker_username}/mysql-xtradb-server:${var.tag} .",
       "docker login -u ${var.docker_username} -p ${var.docker_password}",
+      "docker tag ${var.docker_username}/mysql-xtradb-server:${var.tag} ${var.docker_username}/mysql-xtradb-server:latest",
+      "docker push ${var.docker_username}/mysql-xtradb-server:${var.tag}",
+      "docker push ${var.docker_username}/mysql-xtradb-server:latest",
     ]
     environment_vars = [
       "DOCKER_DEFAULT_PLATFORM=linux/amd64",
