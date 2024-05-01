@@ -1,4 +1,4 @@
-name: mysql xtradb operator Packer Image CI Build
+name: mysql xtradb server Packer Image CI Build
 
 on: 
  workflow_dispatch: 
