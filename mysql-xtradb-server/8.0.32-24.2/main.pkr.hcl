@@ -52,7 +52,7 @@ build {
       "sudo apt-get install -y docker.io",
       "sudo apt install docker-buildx",
       "git clone https://github.com/Avnshrai/percona-xtradb-cluster-operator.git",
-      "cd percona-xtradb-cluster-operator/mysql-xtradb-server/${var.tag}/percona-xtradb-cluster-8.0",
+      "cd percona-xtradb-cluster-operator/mysql-xtradb-server/8.0.32-24.2/percona-xtradb-cluster-8.0",
       "docker build -t ${var.docker_username}/mysql-xtradb-server:${var.tag} .",
       "docker login -u ${var.docker_username} -p ${var.docker_password}",
       "docker tag ${var.docker_username}/mysql-xtradb-server:${var.tag} ${var.docker_username}/mysql-xtradb-server:latest",
